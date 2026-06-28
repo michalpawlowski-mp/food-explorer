@@ -1,7 +1,8 @@
-export function Categori() {
+export function Category() {
   return (
-    <header className="px-6 py-4 border-b border-gray-200 text-center">
+    <div className="px-6 py-4 border-b border-gray-200">
       <span className="text-xl font-medium">Lista Kategorii</span>
-    </header>
+      <div className="flex gap-2"></div>
+    </div>
   );
 }

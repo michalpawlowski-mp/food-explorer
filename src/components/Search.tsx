@@ -1,6 +1,6 @@
 export function Search() {
   return (
-    <div className="flex w-full max-w-xl gap-2 p-15 bg-blue-50">
+    <div className="flex w-full max-w-xl gap-2 p-15 bg-[url(/bg-search.png)]">
       <input
         type="text"
         placeholder="Wyszukaj przepis"
