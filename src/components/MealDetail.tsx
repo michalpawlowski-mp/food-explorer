@@ -1,12 +1,20 @@
-export function MealDetail({ meal, onClose }) {
+import type { MealDetail as MealDetailType } from "../types/meal";
+
+interface MealDetailProps {
+  meal: MealDetailType;
+  onClose: () => void;
+}
+
+export function MealDetail({ meal, onClose }: MealDetailProps) {
   const ingredients = Array.from({ length: 20 }, (_, i) => ({
-    name: meal[`strIngredient${i + 1}`],
-    measure: meal[`strMeasure${i + 1}`],
+    name: (meal as any)[`strIngredient${i + 1}`],
+    measure: (meal as any)[`strMeasure${i + 1}`],
   })).filter((ing) => ing.name);
 
   return (
     <div className="w-[55%] border-l border-gray-200 bg-white p-4 overflow-y-auto">
       <button
+        type="button"
         onClick={onClose}
         className="float-right text-gray-400 hover:text-gray-600 text-lg"
       >

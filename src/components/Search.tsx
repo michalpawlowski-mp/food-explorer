@@ -1,8 +1,12 @@
-export function Search() {
+interface SearchProps {
+  onSearch: (query: string) => void;
+}
+
+export function Search({ onSearch }: SearchProps) {
   return (
     <div className="px-50">
       <div className="flex gap-2 p-15 bg-[url(/bg-search.png)] h-[550px]">
-        <div className="h-[50px] bg-white rounded-xl shadow mx-auto">
+        <div className="h-[50px] flex bg-white rounded-xl shadow mx-auto">
           <input
             type="text"
             placeholder="Wyszukaj przepis"

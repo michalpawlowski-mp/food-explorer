@@ -1,4 +1,12 @@
-export function MealGrid({ meals, selected, onSelect }) {
+import type { MealPreview, MealDetail } from "../types/meal";
+
+interface MealGridProps {
+  meals: MealPreview[];
+  selected: MealDetail | null;
+  onSelect: (id: string) => void;
+}
+
+export function MealGrid({ meals, selected, onSelect }: MealGridProps) {
   return (
     <div className="w-full p-4 grid gap-3">
       {meals.map((meal) => (
