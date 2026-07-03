@@ -4,22 +4,20 @@ interface SearchProps {
 
 export function Search({ onSearch }: SearchProps) {
   return (
-    <div className="px-50">
-      <div className="flex gap-2 p-15 bg-[url(/bg-search.png)] h-[550px]">
-        <div className="h-[50px] flex bg-white rounded-xl shadow mx-auto">
-          <input
-            type="text"
-            placeholder="Wyszukaj przepis"
-            onChange={(e) => onSearch(e.target.value)}
-            className=" px-5 py-3 text-sm outline-none  "
-          />
-          <button
-            type="button"
-            className="px-5 py-3 bg-green-500 hover:bg-green-400 text-white text-sm rounded-xl transition-colors"
-          >
-            Szukaj
-          </button>
-        </div>
+    <div className="flex items-center justify-center bg-cover bg-center bg-[url(/bg-search.png)] h-[450px]">
+      <div className="flex bg-white rounded-xl shadow-lg overflow-hidden">
+        <input
+          type="text"
+          placeholder="Wyszukaj przepis (np. kurczak, pasta, burger)..."
+          onChange={(e) => onSearch(e.target.value)}
+          className="w-[380px] px-5 py-3 text-sm outline-none"
+        />
+        <button
+          type="button"
+          className="px-6 py-3 bg-green-500 hover:bg-green-400 text-white text-sm font-medium transition-colors"
+        >
+          Szukaj
+        </button>
       </div>
     </div>
   );
