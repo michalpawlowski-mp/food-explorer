@@ -17,7 +17,7 @@ export default function App() {
   const [categories, setCategories] = useState<CategoryType[]>([]);
   const [meals, setMeals] = useState<MealPreview[]>([]);
   const [selected, setSelected] = useState<MealDetailType | null>(null);
-  const [active, setActive] = useState("Wszystkie");
+  const [active, setActive] = useState("All");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function App() {
     setSelected(null);
     setActive(cat);
     setLoading(true);
-    const data = await getMealsByCategory(cat === "Wszystkie" ? "Beef" : cat);
+    const data = await getMealsByCategory(cat === "All" ? "Beef" : cat);
     setMeals(data ?? []);
     setLoading(false);
   }
@@ -37,7 +37,7 @@ export default function App() {
   async function handleSearch(query: string) {
     if (!query) return;
     setSelected(null);
-    setActive("Wszystkie");
+    setActive("All");
     const { searchMeals } = await import("./api/mealdb");
     const data = await searchMeals(query);
     setMeals(data ?? []);
@@ -55,7 +55,7 @@ export default function App() {
       <Category categories={categories} active={active} onSelect={handleCategory} />
       <div className="flex flex-1 overflow-hidden">
         {loading ? (
-          <p className="p-4 text-sm text-gray-400">Ładowanie...</p>
+          <p className="p-4 text-sm text-gray-400">Loading...</p>
         ) : meals.length === 0 ? (
           <EmptyState />
         ) : (

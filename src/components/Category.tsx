@@ -15,13 +15,13 @@ export function Category({ categories, active, onSelect }: CategoryProps) {
       <div className="flex gap-3 mt-3 overflow-x-auto pb-1">
         <button
           type="button"
-          onClick={() => onSelect("Wszystkie")}
-          className={`flex flex-col items-center gap-1 shrink-0 ${active === "Wszystkie" ? "opacity-100" : "opacity-60 hover:opacity-100"} transition-opacity`}
+          onClick={() => onSelect("All")}
+          className={`flex flex-col items-center gap-1 shrink-0 ${active === "All" ? "opacity-100" : "opacity-60 hover:opacity-100"} transition-opacity`}
         >
           <div className="w-14 h-14 rounded-full bg-gray-100 flex items-center justify-center text-xl">
             🍽️
           </div>
-          <span className="text-xs text-gray-600 whitespace-nowrap">Wszystkie</span>
+          <span className="text-xs text-gray-600 whitespace-nowrap">All</span>
         </button>
         {categories.map((cat) => (
           <button

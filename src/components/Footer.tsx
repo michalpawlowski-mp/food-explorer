@@ -1,7 +1,7 @@
 export function Footer() {
   return (
     <footer className="text-center text-sm text-gray-400 py-4 border-t border-gray-200">
-      Dane pochodzą z{" "}
+      Data provided by{" "}
       <a
         href="https://www.themealdb.com"
         target="_blank"
@@ -10,7 +10,7 @@ export function Footer() {
       >
         TheMealDB
       </a>{" "}
-      · Stworzone przez Michała Pawłowskiego · {new Date().getFullYear()}
+      · Created by Michał Pawłowski · {new Date().getFullYear()}
     </footer>
   );
 }

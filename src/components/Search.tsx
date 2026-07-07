@@ -8,7 +8,7 @@ export function Search({ onSearch }: SearchProps) {
       <div className="flex bg-white rounded-xl shadow-lg overflow-hidden">
         <input
           type="text"
-          placeholder="Wyszukaj przepis (np. kurczak, pasta, burger)..."
+          placeholder="Search for a recipe (e.g. chicken, pasta, burger)..."
           onChange={(e) => onSearch(e.target.value)}
           className="w-[380px] px-5 py-3 text-sm outline-none"
         />
@@ -16,7 +16,7 @@ export function Search({ onSearch }: SearchProps) {
           type="button"
           className="px-6 py-3 bg-green-500 hover:bg-green-400 text-white text-sm font-medium transition-colors"
         >
-          Szukaj
+          Search
         </button>
       </div>
     </div>

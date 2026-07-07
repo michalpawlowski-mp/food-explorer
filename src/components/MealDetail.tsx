@@ -33,7 +33,7 @@ export function MealDetail({ meal, onClose }: MealDetailProps) {
           {meal.strCategory} · {meal.strArea}
         </p>
         <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
-          Składniki
+          Ingredients
         </p>
         <div className="flex flex-col gap-1 mb-5">
           {ingredients.map((ing) => (
@@ -47,7 +47,7 @@ export function MealDetail({ meal, onClose }: MealDetailProps) {
           ))}
         </div>
         <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
-          Instrukcje
+          Instructions
         </p>
         <p className="text-xs text-gray-500 leading-relaxed">{meal.strInstructions}</p>
       </div>
