@@ -10,7 +10,7 @@ export function Category({ categories, active, onSelect }: CategoryProps) {
   return (
     <div className="px-6 py-4 border-b border-gray-200 bg-white">
       <span className="text-sm font-medium text-gray-400 uppercase tracking-wide">
-        Lista kategorii
+        Categories
       </span>
       <div className="flex gap-3 mt-3 overflow-x-auto pb-1">
         <button
