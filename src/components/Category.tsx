@@ -29,7 +29,9 @@ export function Category({ categories, active, onSelect }: CategoryProps) {
               alt={cat.strCategory}
               className={`w-14 h-14 rounded-full object-cover border-2 ${active === cat.strCategory ? "border-green-500" : "border-transparent"}`}
             />
-            <span className="text-xs text-gray-600 whitespace-nowrap">
+            <span
+              className={`text-xs whitespace-nowrap ${active === cat.strCategory ? "text-green-600 font-medium" : "text-gray-600"}`}
+            >
               {cat.strCategory}
             </span>
           </button>

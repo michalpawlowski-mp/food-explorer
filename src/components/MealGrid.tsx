@@ -18,7 +18,7 @@ export function MealGrid({ meals, selected, onSelect }: MealGridProps) {
             alt={meal.strMeal}
             className="w-full h-28 object-cover"
           />
-          <p className="text-xs font-medium p-2 leading-snug text-gray-700">
+          <p className="text-sm font-medium p-3 leading-snug text-gray-700">
             {meal.strMeal}
           </p>
         </div>
