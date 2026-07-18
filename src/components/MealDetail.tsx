@@ -1,14 +1,11 @@
-import type { MealDetail as MealDetailType } from "../types/meal";
-
-interface MealDetailProps {
-  meal: MealDetailType;
-  onClose: () => void;
-}
+import type { MealDetailProps } from "../types/props";
 
 export function MealDetail({ meal, onClose }: MealDetailProps) {
+  const meal2 = meal as unknown as Record<string, string>;
+
   const ingredients = Array.from({ length: 20 }, (_, i) => ({
-    name: (meal as Record<string, string>)[`strIngredient${i + 1}`],
-    measure: (meal as Record<string, string>)[`strMeasure${i + 1}`],
+    name: meal2[`strIngredient${i + 1}`],
+    measure: meal2[`strMeasure${i + 1}`],
   })).filter((ing) => ing.name);
 
   return (
@@ -28,7 +25,9 @@ export function MealDetail({ meal, onClose }: MealDetailProps) {
         </button>
       </div>
       <div className="p-5">
-        <p className="text-base font-semibold text-gray-800 mb-1">{meal.strMeal}</p>
+        <p className="text-base font-semibold text-gray-800 mb-1">
+          {meal.strMeal}
+        </p>
         <p className="text-xs text-gray-400 mb-5">
           {meal.strCategory} · {meal.strArea}
         </p>
@@ -49,7 +48,9 @@ export function MealDetail({ meal, onClose }: MealDetailProps) {
         <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
           Instructions
         </p>
-        <p className="text-xs text-gray-500 leading-relaxed">{meal.strInstructions}</p>
+        <p className="text-xs text-gray-500 leading-relaxed">
+          {meal.strInstructions}
+        </p>
       </div>
     </div>
   );

@@ -1,10 +1,4 @@
-import type { Category } from "../types/meal";
-
-interface CategoryProps {
-  categories: Category[];
-  active: string;
-  onSelect: (category: string) => void;
-}
+import type { CategoryProps } from "../types/props";
 
 export function Category({ categories, active, onSelect }: CategoryProps) {
   return (

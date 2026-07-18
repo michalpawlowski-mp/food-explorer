@@ -1,10 +1,4 @@
-import type { MealPreview, MealDetail } from "../types/meal";
-
-interface MealGridProps {
-  meals: MealPreview[];
-  selected: MealDetail | null;
-  onSelect: (id: string) => void;
-}
+import type { MealGridProps } from "../types/props";
 
 export function MealGrid({ meals, selected, onSelect }: MealGridProps) {
   return (

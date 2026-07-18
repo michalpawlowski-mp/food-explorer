@@ -1,6 +1,4 @@
-interface SearchProps {
-  onSearch: (query: string) => void;
-}
+import type { SearchProps } from "../types/props";
 
 export function Search({ onSearch }: SearchProps) {
   return (

@@ -58,4 +58,5 @@ export interface MealDetail {
   strMeasure18: string;
   strMeasure19: string;
   strMeasure20: string;
+  [key: string]: string;
 }
