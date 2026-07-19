@@ -2,8 +2,8 @@ import type { CategoryProps } from "../types/props";
 
 export function Category({ categories, active, onSelect }: CategoryProps) {
   return (
-    <div className="px-6 py-4 border-b border-gray-200 bg-white">
-      <span className="text-sm font-medium text-gray-400 uppercase tracking-wide">
+    <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 bg-white">
+      <span className="text-sm font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wide">
         Categories
       </span>
       <div className="flex gap-3 mt-3 overflow-x-auto pb-1">

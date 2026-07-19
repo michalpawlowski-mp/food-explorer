@@ -3,12 +3,12 @@ import type { SearchProps } from "../types/props";
 export function Search({ onSearch }: SearchProps) {
   return (
     <div className="flex items-center justify-center bg-cover bg-center bg-[url(/bg-search.png)] h-[450px]">
-      <div className="flex bg-white rounded-xl shadow-lg overflow-hidden">
+      <div className="flex bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
         <input
           type="text"
           placeholder="Search for a recipe..."
           onChange={(e) => onSearch(e.target.value)}
-          className="w-[280px] sm:w-[380px] px-5 py-3 text-sm outline-none"
+          className="w-[280px] sm:w-[380px] px-5 py-3 text-sm outline-none dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
         />
         <button
           type="button"

@@ -9,12 +9,12 @@ export function MealDetail({ meal, onClose }: MealDetailProps) {
   })).filter((ing) => ing.name);
 
   return (
-    <div className="fixed inset-0 z-50 bg-white overflow-y-auto md:static md:inset-auto md:w-[380px] md:shrink-0 md:border-l md:border-gray-100">
-      <div className="sticky top-0 z-10 flex justify-end p-3 bg-white border-b border-gray-100">
+    <div className="fixed inset-0 z-50 bg-white dark:bg-gray-900 overflow-y-auto md:static md:inset-auto md:w-[380px] md:shrink-0 md:border-l md:border-gray-100 dark:md:border-gray-700">
+      <div className="sticky top-0 z-10 flex justify-end p-3 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-700">
         <button
           type="button"
           onClick={onClose}
-          className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:text-gray-800 transition-colors"
+          className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-300 hover:text-gray-800 transition-colors"
         >
           ✕
         </button>
@@ -25,30 +25,34 @@ export function MealDetail({ meal, onClose }: MealDetailProps) {
         className="w-full h-52 object-cover"
       />
       <div className="p-5">
-        <p className="text-base font-semibold text-gray-800 mb-1">
+        <p className="text-base font-semibold text-gray-800 dark:text-white mb-1">
           {meal.strMeal}
         </p>
-        <p className="text-xs text-gray-400 mb-5">
+        <p className="text-xs text-gray-400 dark:text-gray-500 mb-5">
           {meal.strCategory} · {meal.strArea}
         </p>
-        <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
+        <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">
           Ingredients
         </p>
         <div className="flex flex-col gap-1 mb-5">
           {ingredients.map((ing) => (
             <div
               key={ing.name}
-              className="flex justify-between text-xs px-3 py-2 bg-gray-50 rounded-lg"
+              className="flex justify-between text-xs px-3 py-2 bg-gray-50 dark:bg-gray-800 rounded-lg"
             >
-              <span className="text-gray-700 font-medium">{ing.name}</span>
-              <span className="text-gray-400">{ing.measure}</span>
+              <span className="text-gray-700 dark:text-gray-200 font-medium">
+                {ing.name}
+              </span>
+              <span className="text-gray-400 dark:text-gray-500">
+                {ing.measure}
+              </span>
             </div>
           ))}
         </div>
-        <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
+        <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">
           Instructions
         </p>
-        <p className="text-xs text-gray-500 leading-relaxed">
+        <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
           {meal.strInstructions}
         </p>
       </div>

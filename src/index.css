@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 * {
   scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+html.dark {
+  background-color: #111827;
+  color-scheme: dark;
 }
