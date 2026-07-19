@@ -9,8 +9,8 @@ export function MealDetail({ meal, onClose }: MealDetailProps) {
   })).filter((ing) => ing.name);
 
   return (
-    <div className="w-full md:w-[380px] shrink-0 md:border-l border-t md:border-t-0 border-gray-100 bg-white overflow-y-auto">
-      <div className="sticky top-0 z-10 flex justify-end p-3 bg-white border-b border-gray-100 md:hidden">
+    <div className="fixed inset-0 z-50 bg-white overflow-y-auto md:static md:inset-auto md:w-[380px] md:shrink-0 md:border-l md:border-gray-100">
+      <div className="sticky top-0 z-10 flex justify-end p-3 bg-white border-b border-gray-100">
         <button
           type="button"
           onClick={onClose}
@@ -19,22 +19,15 @@ export function MealDetail({ meal, onClose }: MealDetailProps) {
           ✕
         </button>
       </div>
-      <div className="relative">
-        <img
-          src={meal.strMealThumb}
-          alt={meal.strMeal}
-          className="w-full h-52 object-cover"
-        />
-        <button
-          type="button"
-          onClick={onClose}
-          className="hidden md:flex absolute top-3 right-3 w-8 h-8 bg-white rounded-full items-center justify-center text-gray-500 hover:text-gray-800 shadow transition-colors"
-        >
-          ✕
-        </button>
-      </div>
+      <img
+        src={meal.strMealThumb}
+        alt={meal.strMeal}
+        className="w-full h-52 object-cover"
+      />
       <div className="p-5">
-        <p className="text-base font-semibold text-gray-800 mb-1">{meal.strMeal}</p>
+        <p className="text-base font-semibold text-gray-800 mb-1">
+          {meal.strMeal}
+        </p>
         <p className="text-xs text-gray-400 mb-5">
           {meal.strCategory} · {meal.strArea}
         </p>
@@ -55,7 +48,9 @@ export function MealDetail({ meal, onClose }: MealDetailProps) {
         <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
           Instructions
         </p>
-        <p className="text-xs text-gray-500 leading-relaxed">{meal.strInstructions}</p>
+        <p className="text-xs text-gray-500 leading-relaxed">
+          {meal.strInstructions}
+        </p>
       </div>
     </div>
   );
