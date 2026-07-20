@@ -1,13 +1,19 @@
 import type { MealGridProps } from "../types/props";
 
-export function MealGrid({ meals, selected, onSelect }: MealGridProps) {
+export function MealGrid({
+  meals,
+  selected,
+  onSelect,
+  toggleFavorite,
+  isFavorite,
+}: MealGridProps) {
   return (
     <div className="flex-1 p-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 overflow-y-auto content-start dark:bg-gray-900">
       {meals.map((meal) => (
         <div
           key={meal.idMeal}
           onClick={() => onSelect(meal.idMeal)}
-          className={`bg-white dark:bg-gray-800 border rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-md ${
+          className={`relative bg-white dark:bg-gray-800 border rounded-2xl overflow-hidden cursor-pointer transition-all hover:shadow-md ${
             selected?.idMeal === meal.idMeal
               ? "border-green-400 border-2 shadow-md"
               : "border-gray-100 dark:border-gray-700 hover:border-gray-300"
@@ -18,6 +24,20 @@ export function MealGrid({ meals, selected, onSelect }: MealGridProps) {
             alt={meal.strMeal}
             className="w-full h-28 object-cover"
           />
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              toggleFavorite(meal.idMeal);
+            }}
+            className={`absolute top-2 right-2 w-7 h-7 rounded-full flex items-center justify-center text-sm transition-colors ${
+              isFavorite(meal.idMeal)
+                ? "bg-red-100 text-red-500"
+                : "bg-white/90 text-gray-400 hover:text-red-400"
+            }`}
+          >
+            {isFavorite(meal.idMeal) ? "❤️" : "🤍"}
+          </button>
           <p className="text-sm font-medium p-3 leading-snug text-gray-700 dark:text-gray-200">
             {meal.strMeal}
           </p>

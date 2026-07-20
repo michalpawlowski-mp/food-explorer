@@ -7,7 +7,7 @@ import {
 } from "../api/mealdb";
 import type { Category, MealPreview, MealDetail } from "../types/meal";
 
-export function useApp() {
+export function useApp(favorites: string[]) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [meals, setMeals] = useState<MealPreview[]>([]);
   const [selected, setSelected] = useState<MealDetail | null>(null);
@@ -22,8 +22,20 @@ export function useApp() {
   async function handleCategory(cat: string) {
     setSelected(null);
     setActive(cat);
+    if (cat === "Favorites") {
+      const data = await Promise.all(favorites.map((id) => getMealById(id)));
+      setMeals(
+        data.map((m) => ({
+          idMeal: m.idMeal,
+          strMeal: m.strMeal,
+          strMealThumb: m.strMealThumb,
+        })),
+      );
+      setLoading(false);
+      return;
+    }
     setLoading(true);
-    const data = await getMealsByCategory(cat === "All" ? "Chicken" : cat);
+    const data = await getMealsByCategory(cat === "All" ? "Beef" : cat);
     setMeals(data ?? []);
     setLoading(false);
   }

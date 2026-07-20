@@ -6,8 +6,10 @@ import { Search } from "./components/Search";
 import { MealGrid } from "./components/MealGrid";
 import { MealDetail } from "./components/MealDetail";
 import { EmptyState } from "./components/EmptyState";
+import { useFavorites } from "./hooks/useFavorites";
 
 export default function App() {
+  const { favorites, toggleFavorite, isFavorite } = useFavorites();
   const {
     categories,
     meals,
@@ -18,7 +20,7 @@ export default function App() {
     handleCategory,
     handleSearch,
     handleSelect,
-  } = useApp();
+  } = useApp(favorites);
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
@@ -31,7 +33,13 @@ export default function App() {
         ) : meals.length === 0 ? (
           <EmptyState />
         ) : (
-          <MealGrid meals={meals} selected={selected} onSelect={handleSelect} />
+          <MealGrid
+            meals={meals}
+            selected={selected}
+            onSelect={handleSelect}
+            toggleFavorite={toggleFavorite}
+            isFavorite={isFavorite}
+          />
         )}
         {selected && <MealDetail meal={selected} onClose={() => setSelected(null)} />}
       </div>

@@ -40,6 +40,20 @@ export function Category({ categories, active, onSelect }: CategoryProps) {
             </span>
           </button>
         ))}
+        <button
+          type="button"
+          onClick={() => onSelect("Favorites")}
+          className={`flex flex-col items-center gap-1 shrink-0 ${active === "Favorites" ? "opacity-100" : "opacity-60 hover:opacity-100"} transition-opacity`}
+        >
+          <div className="w-14 h-14 rounded-full bg-red-50 flex items-center justify-center text-xl">
+            ❤️
+          </div>
+          <span
+            className={`text-xs whitespace-nowrap ${active === "Favorites" ? "text-red-500 font-medium" : "text-gray-600 dark:text-gray-400"}`}
+          >
+            Favorites
+          </span>
+        </button>
       </div>
     </div>
   );
