@@ -1,11 +1,7 @@
-import { useState, useEffect } from "react";
+import { useDarkMode } from "../hooks/useDarkMode";
 
 export function Header() {
-  const [dark, setDark] = useState(false);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", dark);
-  }, [dark]);
+  const { dark, toggle } = useDarkMode();
 
   return (
     <header className="px-6 py-3 border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 text-center shadow-sm flex items-center justify-between">
@@ -16,7 +12,7 @@ export function Header() {
       </h1>
       <button
         type="button"
-        onClick={() => setDark(!dark)}
+        onClick={toggle}
         className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-sm transition-colors"
       >
         {dark ? "☀️" : "🌙"}

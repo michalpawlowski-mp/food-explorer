@@ -12,10 +12,14 @@ export function Category({ categories, active, onSelect }: CategoryProps) {
           onClick={() => onSelect("All")}
           className={`flex flex-col items-center gap-1 shrink-0 ${active === "All" ? "opacity-100" : "opacity-60 hover:opacity-100"} transition-opacity`}
         >
-          <div className="w-14 h-14 rounded-full bg-gray-100 flex items-center justify-center text-xl">
+          <div className="w-14 h-14 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-xl">
             🍽️
           </div>
-          <span className="text-xs text-gray-600 whitespace-nowrap">All</span>
+          <span
+            className={`text-xs whitespace-nowrap ${active === "All" ? "text-green-600 font-medium" : "text-gray-600 dark:text-gray-400"}`}
+          >
+            All
+          </span>
         </button>
         {categories.map((cat) => (
           <button
@@ -30,7 +34,7 @@ export function Category({ categories, active, onSelect }: CategoryProps) {
               className={`w-14 h-14 rounded-full object-cover border-2 ${active === cat.strCategory ? "border-green-500" : "border-transparent"}`}
             />
             <span
-              className={`text-xs whitespace-nowrap ${active === cat.strCategory ? "text-green-600 font-medium" : "text-gray-600"}`}
+              className={`text-xs whitespace-nowrap ${active === cat.strCategory ? "text-green-600 font-medium" : "text-gray-600 dark:text-gray-400"}`}
             >
               {cat.strCategory}
             </span>
